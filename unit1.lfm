@@ -1,0 +1,110 @@
+object Form1: TForm1
+  Left = 1022
+  Height = 365
+  Top = 297
+  Width = 699
+  Align = alLeft
+  Caption = 'KAI Medan Book'
+  ClientHeight = 365
+  ClientWidth = 699
+  OnCreate = FormCreate
+  LCLVersion = '3.6.0.0'
+  object ComboBoxDestinasi: TComboBox
+    Left = 103
+    Height = 23
+    Top = 72
+    Width = 100
+    Align = alCustom
+    ItemHeight = 15
+    TabOrder = 0
+    Text = 'Destinasi'
+    OnChange = ComboBoxDestinasiChange
+  end
+  object ComboBoxKelas: TComboBox
+    Left = 103
+    Height = 23
+    Top = 112
+    Width = 100
+    Align = alCustom
+    ItemHeight = 15
+    TabOrder = 1
+    Text = 'Kelas'
+  end
+  object EditJumlah: TEdit
+    Left = 103
+    Height = 23
+    Top = 154
+    Width = 80
+    Align = alCustom
+    TabOrder = 2
+  end
+  object BtnCetak: TButton
+    Left = 15
+    Height = 25
+    Top = 216
+    Width = 75
+    Align = alCustom
+    Caption = 'Cetak'
+    TabOrder = 3
+    OnClick = BtnCetakClick
+  end
+  object BtnKeluar: TButton
+    Left = 128
+    Height = 25
+    Top = 216
+    Width = 75
+    Align = alCustom
+    Caption = 'Keluar'
+    TabOrder = 4
+    OnClick = BtnKeluarClick
+  end
+  object MemoHasil: TMemo
+    Left = 449
+    Height = 365
+    Top = 0
+    Width = 250
+    Align = alRight
+    Color = clWhite
+    TabOrder = 5
+    OnChange = MemoHasilChange
+  end
+  object LabelDestinasi: TLabel
+    Left = 15
+    Height = 15
+    Top = 80
+    Width = 73
+    Align = alCustom
+    Caption = 'Pilih Destinasi'
+  end
+  object LabelKelas: TLabel
+    Left = 15
+    Height = 15
+    Top = 120
+    Width = 53
+    Align = alCustom
+    Caption = 'Pilih Kelas'
+  end
+  object LabelJumlah: TLabel
+    Left = 15
+    Height = 15
+    Top = 162
+    Width = 66
+    Align = alCustom
+    Caption = 'Jumlah Tiket'
+  end
+  object Label1: TLabel
+    Left = 15
+    Height = 23
+    Top = 22
+    Width = 386
+    Caption = 'Selamat Datang di KAI Medan Ticket Book'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -19
+    Font.Name = 'Book Antiqua'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = Label1Click
+  end
+end
