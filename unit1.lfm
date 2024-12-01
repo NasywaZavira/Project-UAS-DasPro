@@ -1,18 +1,20 @@
 object Form1: TForm1
-  Left = 1022
-  Height = 365
-  Top = 297
-  Width = 699
+  Left = 140
+  Height = 558
+  Top = 70
+  Width = 508
   Align = alLeft
-  Caption = 'KAI Medan Book'
-  ClientHeight = 365
-  ClientWidth = 699
+  BorderStyle = bsNone
+  Caption = 'Pesan Tiket'
+  ClientHeight = 558
+  ClientWidth = 508
   OnCreate = FormCreate
   LCLVersion = '3.6.0.0'
+  WindowState = wsMaximized
   object ComboBoxDestinasi: TComboBox
-    Left = 103
+    Left = 560
     Height = 23
-    Top = 72
+    Top = 224
     Width = 100
     Align = alCustom
     ItemHeight = 15
@@ -21,9 +23,9 @@ object Form1: TForm1
     OnChange = ComboBoxDestinasiChange
   end
   object ComboBoxKelas: TComboBox
-    Left = 103
+    Left = 560
     Height = 23
-    Top = 112
+    Top = 264
     Width = 100
     Align = alCustom
     ItemHeight = 15
@@ -31,17 +33,17 @@ object Form1: TForm1
     Text = 'Kelas'
   end
   object EditJumlah: TEdit
-    Left = 103
+    Left = 560
     Height = 23
-    Top = 154
+    Top = 306
     Width = 80
     Align = alCustom
     TabOrder = 2
   end
   object BtnCetak: TButton
-    Left = 15
+    Left = 565
     Height = 25
-    Top = 216
+    Top = 399
     Width = 75
     Align = alCustom
     Caption = 'Cetak'
@@ -49,62 +51,90 @@ object Form1: TForm1
     OnClick = BtnCetakClick
   end
   object BtnKeluar: TButton
-    Left = 128
+    Left = 815
     Height = 25
-    Top = 216
+    Top = 447
     Width = 75
     Align = alCustom
-    Caption = 'Keluar'
+    Caption = 'Selesai'
     TabOrder = 4
     OnClick = BtnKeluarClick
   end
   object MemoHasil: TMemo
-    Left = 449
-    Height = 365
-    Top = 0
-    Width = 250
-    Align = alRight
+    Left = 696
+    Height = 208
+    Top = 216
+    Width = 194
     Color = clWhite
     TabOrder = 5
     OnChange = MemoHasilChange
   end
   object LabelDestinasi: TLabel
-    Left = 15
+    Left = 472
     Height = 15
-    Top = 80
+    Top = 232
     Width = 73
     Align = alCustom
     Caption = 'Pilih Destinasi'
   end
   object LabelKelas: TLabel
-    Left = 15
+    Left = 472
     Height = 15
-    Top = 120
+    Top = 272
     Width = 53
     Align = alCustom
     Caption = 'Pilih Kelas'
   end
   object LabelJumlah: TLabel
-    Left = 15
+    Left = 472
     Height = 15
-    Top = 162
+    Top = 314
     Width = 66
     Align = alCustom
     Caption = 'Jumlah Tiket'
   end
-  object Label1: TLabel
-    Left = 15
-    Height = 23
-    Top = 22
-    Width = 386
-    Caption = 'Selamat Datang di KAI Medan Ticket Book'
+  object BtnHapus: TButton
+    Left = 472
+    Height = 25
+    Top = 400
+    Width = 75
+    Caption = 'Hapus'
+    TabOrder = 6
+    OnClick = BtnHapusClick
+  end
+  object lblprogram: TLabel
+    Left = 5
+    Height = 72
+    Top = 15
+    Width = 498
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Top = 10
+    BorderSpacing.Around = 5
+    Caption = 'KAM Ticket Book'
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -19
-    Font.Name = 'Book Antiqua'
+    Font.Height = -64
+    Font.Name = 'Georgia'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     Font.Style = [fsBold]
+    ParentBidiMode = False
     ParentFont = False
-    OnClick = Label1Click
+  end
+  object lblsapa5: TLabel
+    Left = 0
+    Height = 38
+    Top = 127
+    Width = 508
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Top = 40
+    Caption = 'Silahkan lakukan pemesanan Tiket'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -32
+    Font.Name = 'Georgia'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
   end
 end

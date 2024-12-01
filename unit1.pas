@@ -1,6 +1,6 @@
 unit Unit1;
 
-{$mode objfpc}{$H+}
+//{$mode objfpc}{$H+}
 
 interface
 
@@ -9,36 +9,38 @@ uses
 
 type
 
-
-
   { TForm1 }
 
   TForm1 = class(TForm)
+    BtnPesanlagi: TButton;
+    BtnHapus: TButton;
     ComboBoxDestinasi: TComboBox;
     ComboBoxKelas: TComboBox;
     EditJumlah: TEdit;
     BtnCetak: TButton;
     BtnKeluar: TButton;
-    Label1: TLabel;
+    lblprogram: TLabel;
+    lblsapa5: TLabel;
     MemoHasil: TMemo;
     LabelDestinasi: TLabel;
     LabelKelas: TLabel;
     LabelJumlah: TLabel;
+    procedure BtnBayarClick(Sender: TObject);
     procedure BtnCetakClick(Sender: TObject);
     procedure BtnKeluarClick(Sender: TObject);
+    procedure BtnHapusClick(Sender: TObject);
     procedure ComboBoxDestinasiChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Label1Click(Sender: TObject);
     procedure MemoHasilChange(Sender: TObject);
   private
     procedure TampilkanHasil(Destinasi, Kelas: string; Jumlah, Total: Integer);
     function HitungHarga(Destinasi, Kelas: string): Integer;
   public
-
   end;
 
 var
   Form1: TForm1;
+  TotalKeseluruhan, TotalHarga : integer;
 
 implementation
 
@@ -56,11 +58,6 @@ begin
   ComboBoxKelas.Items.Add('VIP');
   ComboBoxKelas.Items.Add('Bisnis');
   ComboBoxKelas.Items.Add('Ekonomi');
-end;
-
-procedure TForm1.Label1Click(Sender: TObject);
-begin
-
 end;
 
 procedure TForm1.MemoHasilChange(Sender: TObject);
@@ -94,19 +91,21 @@ end;
 
 procedure TForm1.TampilkanHasil(Destinasi, Kelas: string; Jumlah, Total: Integer);
 begin
-  MemoHasil.Lines.Clear;
-  MemoHasil.Lines.Add('--------------- Tiket Kereta Api ---------------');
+  MemoHasil.Lines.Add('-------- Tiket Kereta Api --------');
   MemoHasil.Lines.Add('');
-  MemoHasil.Lines.Add('Destinasi          : Medan -> ' + Destinasi);
-  MemoHasil.Lines.Add('Kelas                 : ' + Kelas);
-  MemoHasil.Lines.Add('Jumlah Tiket    : ' + IntToStr(Jumlah));
-  MemoHasil.Lines.Add('Total Harga     : Rp.' + IntToStr(Total));
+  MemoHasil.Lines.Add('Destinasi   : Medan -> ' + Destinasi);
+  MemoHasil.Lines.Add('Kelas       : ' + Kelas);
+  MemoHasil.Lines.Add('Jumlah Tiket: ' + IntToStr(Jumlah));
+  MemoHasil.Lines.Add('Total Harga : Rp.' + IntToStr(Total));
+  MemoHasil.Lines.Add('');
+  MemoHasil.Lines.Add('Total Keseluruhan: Rp.' + IntToStr(TotalKeseluruhan));
+  MemoHasil.Lines.Add('');
 end;
 
 procedure TForm1.BtnCetakClick(Sender: TObject);
 var
   Destinasi, Kelas: string;
-  JumlahTiket, HargaTiket, TotalHarga: Integer;
+  JumlahTiket, HargaTiket: Integer;
 begin
   if (ComboBoxDestinasi.ItemIndex = -1) or (ComboBoxKelas.ItemIndex = -1) then
   begin
@@ -132,15 +131,36 @@ begin
 
   HargaTiket := HitungHarga(Destinasi, Kelas);
   TotalHarga := HargaTiket * JumlahTiket;
+  TotalKeseluruhan := TotalKeseluruhan + TotalHarga;
+
 
   TampilkanHasil(Destinasi, Kelas, JumlahTiket, TotalHarga);
+
+  EditJumlah.Text := '';
+  BtnCetak.Caption := 'Pesan Lagi';
+
+end;
+
+procedure TForm1.BtnBayarClick(Sender: TObject);
+begin
+  showmessage('Pemb');
 end;
 
 
 procedure TForm1.BtnKeluarClick(Sender: TObject);
 begin
+  showmessage('Terima Kasih Telah menggunakan layanan kami!');
   Close;
 end;
+
+procedure TForm1.BtnHapusClick(Sender: TObject);
+begin
+  MemoHasil.Clear;
+  TotalKeseluruhan := 0;
+  BtnCetak.Caption :='Cetak';
+
+end;
+
 
 procedure TForm1.ComboBoxDestinasiChange(Sender: TObject);
 begin
